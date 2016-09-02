@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  iscsi:
+     targetPortal: "10.70.42.60:3260"
+     iqn: "iqn.2016-08.org.gluster:10.70.42.60"
+     lun: 0
+     fsType: "xfs"
+     readOnly: false

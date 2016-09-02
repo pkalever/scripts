@@ -1,0 +1,38 @@
+{
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "name": "glusterpod"
+     },
+     "spec": {
+	"accessModes": [
+            "ReadWriteOnce",
+            "ReadOnlyMany"
+        ],
+         "containers": [
+             {
+                 "name": "iscsi-rw",
+                 "image": "fedora",
+                 "volumeMounts": [
+                     {
+                         "mountPath": "/mnt/gluster-store",
+                         "name": "iscsi-rw"
+                     }
+                 ],
+                 "command": [ "sleep", " 100000" ]
+            }
+        ],
+        "volumes": [
+            {
+                "name": "iscsi-rw",
+                "iscsi": {
+                    "targetPortal": "10.70.42.151:3260",
+                    "iqn": "iqn.2016-08.org.gluster:10.70.42.151",
+                    "lun": 0,
+                    "fsType": "xfs",
+                    "readOnly": false
+                }
+            }
+        ]
+    }
+}
