@@ -1,0 +1,3 @@
+set blame-view-line-number = no
+set blame-view-date = short
+#set mouse = true

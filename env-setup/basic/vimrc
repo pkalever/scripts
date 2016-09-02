@@ -1,0 +1,176 @@
+syntax on
+filetype on
+
+set ls=2
+
+" Disable beep sound
+set vb
+
+set background=dark
+
+set tabstop=4
+set shiftwidth=4
+
+" Expand tab to spaces
+set expandtab
+
+set incsearch
+set hlsearch
+
+set cindent
+set autoindent
+set smartindent
+
+set showmatch
+set ruler
+set wrap
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
+set cmdheight=2
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+"set nobackup
+"set nowb
+"set noswapfile
+
+set cul
+"hi CursorLine term=none cterm=none ctermbg=10
+"set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
+
+set swapfile
+set backup                     " keep a backup file
+set backupdir=./.backup,/tmp
+set directory=./.backup,/tmp
+
+"ignore case when finding a pattern
+set ic
+
+"show charecters for tab space and EOL
+"set list
+"set listchars=eol:⇂,tab:¨-,trail:»,extends:>,precedes:<
+"set listchars=eol:˫,tab:¨-,trail:»,extends:>,precedes:<
+"set listchars=eol:ʼ,tab:¨-,trail:»,extends:>,precedes:<
+"set listchars=eol:¶,tab:¬-,trail:▸,extends:>,precedes:<
+"set listchars=eol:▸,tab:¬-,trail:~,extends:>,precedes:<
+"set listchars=eol:¶,tab:▸-,trail:~,extends:>,precedes:<
+
+
+"enable the mouse
+"set mouse=a
+set ruler
+
+"set number
+filetype plugin indent on
+
+"set listchars=tab:>?,trail:?
+"set list
+
+
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"au ColorScheme * highlight ExtraWhitespace guibg=red
+"au BufEnter * match ExtraWhitespace /\s\+$/
+"au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+highlight UnwanttedTab ctermbg=red guibg=darkred
+highlight TrailSpace guibg=red ctermbg=darkred
+match UnwanttedTab /\t/
+match TrailSpace / \+$/
+
+autocmd ColorScheme * highlight UnwanttedTab ctermbg=red guibg=darkred
+autocmd ColorScheme * highlight TrailSpace guibg=red ctermbg=darkred
+
+colorscheme desert
+"colorscheme elflord
+"colors koehler
+"colorscheme torte
+
+" ///{{{: open marker
+" ///}}}: close marker
+" z-c: close fold
+" z-o: open fold
+set foldmethod=marker
+
+" for ctag finding from Honggyu Kim
+map <F5> <C-]>
+map <F6> <C-t>
+map <F7> :tn<Cr>
+map <F8> :tp<Cr>
+map <F9> :ts<Cr>
+
+" " When editing a file, always jump to the last known.
+" " " Don't do it when the position is invalid or when inside an event handler
+" " " (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+"Copy and paste between different Vim sessions
+nmap <C-c> :.w! ~/.vi_clipboard<CR>
+vmap <C-c> :w! ~/.vi_clipboard<CR>
+nmap <C-v> :r ~/.vi_clipboard<CR>
+
+
+"Strict Code line 80 char
+set colorcolumn=81
+"hi NonText guibg=Black ctermbg=0
+highlight ColorColumn ctermbg=43 ctermfg=0
+"let &colorcolumn=join(range(81,999),",")
+
+
+"set cursorline
+"set cursorline cursorcolumn
+"hi CursorLine ctermbg=8 ctermfg=15 "8 = dark gray, 15 = white
+"hi Cursor ctermbg=15 ctermfg=8
+"highlight CursorLine ctermbg=15 ctermfg=8
+"highlight CursorColumn ctermbg=15 ctermfg=0
+
+
+
+" For Cscope
+nmap <C-d> :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w> :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-g> :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-f> :cs find f <C-R>=expand("<cfile>")<CR><CR>
+map <F11> <C-]>
+map <F12> <C-t>
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+" Plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'justmao945/vim-clang'
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Color schemes
+
+Plugin 'fatih/vim-go'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+Plugin 'airblade/vim-gitgutter'
+set updatetime=25

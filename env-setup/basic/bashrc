@@ -1,0 +1,27 @@
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+source  ~/.bash_aliases
+#fi
+
+#export PS1="\[\033[01;37m\]>> \$? \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]:)\"; else echo \"\[\033[01;31m\]:(\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;34m\]\u'; fi)\[\033[01;33m\] @\W \$\[\033[00m\] "
+#export PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;34m\]\u'; fi)\[\033[01;33m\] \w \[\033[00m\] \[\033[01;37m\]\$? \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]:)\"; else echo \"\[\033[01;31m\]:(\"; fi)"
+export PS1="\[\033[00m\]\[\033[01;30m\][\$?] \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]ॐ\"; else echo \"\[\033[01;31m\]𝚿\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\T@'; else echo '\[\033[01;34m\]'; fi)\[\033[01;33m\]\W \$\[\033[00m\] "
+#export PS1="\[\033[01;30m\][\$?] \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]ॐ\"; else echo \"\[\033[01;31m\]𝚿\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h@'; else echo '\[\033[01;34m\]'; fi)\[\033[01;33m\]\W \$\[\033[00m\] "
+#export PS1="\[\033[01;37m\][\$?] \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]ॐ\"; else echo \"\[\033[01;31m\]𝚿\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h@'; else echo '\[\033[01;34m\]'; fi)\[\033[01;33m\]\W \$\[\033[00m\] "
+#export PS1="\[\033[01;37m\]<\$?> \$(if [[ \$? == 0 ]]; then echo \"\[\033[01;32m\]:)\"; else echo \"\[\033[01;31m\]:(\"; fi) $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h@'; else echo '\[\033[01;34m\]'; fi)\[\033[01;33m\]\W \$\[\033[00m\] "
+#export PS1="\n\e[1m\w\e[0m\n\e[1;32m\u\e[m $ " ## My setup for root/user is 31/32 and #/$
+#function exitstatus {
+#        EXITSTATUS="$?"
+#
+#        if [ "${EXITSTATUS}" -eq 0 ]
+#        then
+#                printf "\e[1;32m%$(($COLUMNS))s\e[m" "[  OK  ] "
+#        else
+#                printf "\e[1;31m%$(($COLUMNS))s\e[m" "[ERRORS] "
+#        fi
+#}
+#PROMPT_COMMAND=exitstatus

@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f cscope*
+find . -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.py" -o -name "*.pl" -o -name "*.sh" > cscope.files
+cscope -q -R -b -i cscope.files

@@ -1,0 +1,65 @@
+[log]
+        decorate = full
+
+[user]
+        email = prasanna.kalever@redhat.com
+        name = Prasanna Kumar Kalever
+
+[color]
+        ui = true
+
+[color "branch"]
+        current = yellow reverse
+        local   = yellow
+        remote  = green
+
+[color "diff"]
+        meta  = yellow bold
+        frag  = magenta bold
+        old   = red bold
+        whitespace = red reverse
+
+[color "status"]
+        added     = green
+        changed   = yellow
+        untracked = cyan
+
+[core]
+        ui         = auto
+        editor     = vim
+        whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[alias]
+        st  = status
+        ts  = status
+        con = commit -s
+        cop = commit --amend
+        di  = diff --color
+        dii = diff --color --ignore-space-change
+        br  = branch
+        #l   = log --graph --decorate  --abbrev-commit --all
+        #lo  = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        l    = log --no-merges --graph --decorate --abbrev-commit
+        logs = log --no-merges --graph --decorate --abbrev-commit
+        logf = log --no-merges --graph --decorate --abbrev-commit --stat
+        lo   = log --no-merges --graph --decorate --pretty=oneline --abbrev-commit
+        lof = log --no-merges --graph --decorate --pretty=oneline --abbrev-commit --stat
+        count  = shortlog -s -n
+        ecount  = shortlog -s -n -e
+        rs  = reset --soft HEAD
+        rs1 = reset --soft HEAD^
+        rs2 = reset --soft HEAD^^
+        rs3 = reset --soft HEAD^^^
+        rs4 = reset --soft HEAD^^^^
+        rh  = reset --hard HEAD
+        rh1 = reset --hard HEAD^
+        rh2 = reset --hard HEAD^^
+        rh3 = reset --hard HEAD^^^
+        rh4 = reset --hard HEAD^^^^
+        rh5 = reset --hard HEAD^^^^^
+        rh6 = reset --hard HEAD^^^^^^
+        rh7 = reset --hard HEAD^^^^^^^
+        rh8 = reset --hard HEAD^^^^^^^^
+        rh9 = reset --hard HEAD^^^^^^^^^
+        rh10 = reset --hard HEAD^^^^^^^^^
+        sqm = rebase -i origin/master

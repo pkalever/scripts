@@ -1,0 +1,20 @@
+" generic
+alias ls='ls --color=auto'
+alias vi='vim'
+alias sl='ls'
+alias p='pwd'
+alias cgrep='grep --color=always'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+alias tree='tree -C'
+alias fox='firefox'
+
+" gluster related
+alias gvs='gluster vol status'
+alias gvi='gluster vol info'
+alias gvc='gluster vol create'
+alias gvd='gluster vol delete'
+alias gpl='gluster pool list'
+alias gpp='gluster peer probe'
+alias gpd='gluster peer detach'
